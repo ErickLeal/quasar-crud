@@ -1,0 +1,16 @@
+version: '3'
+services:
+  quasar-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    volumes:
+      - .:/usr/src/app
+    command: sh -c "tail -f /dev/null"
+    networks:
+      - expenses-api
+networks:
+  expenses-api:
+    external: true
